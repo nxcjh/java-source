@@ -21,6 +21,10 @@ import java.io.RandomAccessFile;
  */
 public class RandomAccessFileLearn {
 	
+	/**
+	 * 从指定的为止读取数据
+	 * @throws IOException
+	 */
 	public static void readmiddle() throws IOException{
 		RandomAccessFile raf = new RandomAccessFile("C:/Users/nxcjh/Desktop/方案（存储格式更新为ORC）(1).txt","r");
 		raf.seek(4);
@@ -31,8 +35,21 @@ public class RandomAccessFileLearn {
 		}
 	}
 	
+	/**
+	 * 在文件末尾追加文件
+	 * @throws IOException 
+	 */
+	public static void appendDataFromEnd() throws IOException{
+		RandomAccessFile raf = new RandomAccessFile("C:/Users/nxcjh/Desktop/方案（存储格式更新为ORC）(1).txt","rw");
+		raf.seek(raf.length());
+		raf.write("hello world!".getBytes());
+		raf.close();
+	}
+	
+	
 	public static void main(String[] args) throws IOException {
-		readmiddle();
+//		readmiddle();
+		appendDataFromEnd();
 	}
 	
 
